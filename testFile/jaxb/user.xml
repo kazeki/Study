@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user>
+    <id>1001</id>
+    <name>kazeki1</name>
+    <children>
+        <child>
+            <id>1002</id>
+            <name>hokosaki</name>
+        </child>
+        <child>
+            <id>1003</id>
+            <name>boo</name>
+        </child>
+    </children>
+</user>
