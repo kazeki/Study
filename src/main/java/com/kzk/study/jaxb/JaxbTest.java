@@ -55,6 +55,7 @@ class JaxbHelper {
 		writeXml(path, bean, null);
 	}
 	
+	@SuppressWarnings("restriction")
 	public static <T> void writeXml(String path, T bean, Schema schema) throws JAXBException {
 		JAXBContext ctx = JAXBContext.newInstance(bean.getClass());
 		Marshaller marshaller = ctx.createMarshaller();
@@ -65,10 +66,12 @@ class JaxbHelper {
 		marshaller.marshal(bean, new File(path));
 	}
 
+	@SuppressWarnings("restriction")
 	public static <T> T parse(String path, Class<T> type) throws JAXBException {
 		return parse(path,type,null);
 	}
 	
+	@SuppressWarnings({ "restriction", "unchecked" })
 	public static <T> T parse(String path, Class<T> type, Schema schema) throws JAXBException {
 		JAXBContext ctx = JAXBContext.newInstance(type);
 		Unmarshaller unmarshaller = ctx.createUnmarshaller();
@@ -87,7 +90,6 @@ class JaxbHelper {
 				super.afterUnmarshal(target, parent);
 			}
 		});
-		@SuppressWarnings("unchecked")
 		T bean = (T) unmarshaller.unmarshal(new File(path));
 		return bean;
 	}
